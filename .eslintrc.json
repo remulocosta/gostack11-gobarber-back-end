@@ -26,6 +26,7 @@
   "rules": {
     "no-alert": "off",
     "no-console": "off",
+    "no-underscore-dangle": "off",
     "prettier/prettier": "error",
     "class-methods-use-this": "off",
     "@typescript-eslint/camelcase": "off",
