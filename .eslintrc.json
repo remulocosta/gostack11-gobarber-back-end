@@ -30,6 +30,8 @@
     "prettier/prettier": "error",
     "class-methods-use-this": "off",
     "@typescript-eslint/camelcase": "off",
+    "no-useless-constructor": "off",
+    "@typescript-eslint/interface-name-prefix": ["error", {"prefixWithI": "always" }],
     "@typescript-eslint/no-unused-vars": ["error", {
       "argsIgnorePattern": "_"
     }],
@@ -47,8 +49,9 @@
         "groups": [
           "/^react/",
           "module",
-          "/^@shared/",
-          "/^~/",
+          ["/@config/", "/^@shared/"],
+          ["/@modules/"],
+          ["/^~/"],
           ["parent", "sibling", "index"]
         ],
         "alphabetize": { "order": "asc", "ignoreCase": true }
