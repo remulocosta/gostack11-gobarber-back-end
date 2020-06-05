@@ -5,6 +5,7 @@ coverage/
 build/
 temp/
 .DS_store
+.env
 
 tmp/*
 !tmp/.gitkeep
