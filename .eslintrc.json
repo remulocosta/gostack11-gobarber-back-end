@@ -33,9 +33,7 @@
     "@typescript-eslint/camelcase": "off",
     "no-useless-constructor": "off",
     "@typescript-eslint/interface-name-prefix": ["error", {"prefixWithI": "always" }],
-    "@typescript-eslint/no-unused-vars": ["error", {
-      "argsIgnorePattern": "_"
-    }],
+    "@typescript-eslint/no-unused-vars": ["error", {"argsIgnorePattern": "_" }],
     "import/extensions": [
       "error",
       "ignorePackages",

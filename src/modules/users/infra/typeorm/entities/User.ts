@@ -1,4 +1,5 @@
 import { Exclude, Expose } from 'class-transformer';
+// import crypto from 'crypto';
 import {
   Entity,
   Column,
@@ -36,7 +37,13 @@ class User {
   @Expose({ name: 'avatar_url' })
   getAvatarUrl(): string | null {
     if (!this.avatar) {
-      return null;
+      // return null;
+      // const urlAvatarFake = `http://gravatar.com/avatar/${crypto
+      //   .createHash('md5')
+      //   .update(this.email)
+      //   .digest('hex')}`;
+
+      return `${process.env.APP_API_URL}/files/avatar.png`;
     }
 
     switch (uploadConfig.driver) {
