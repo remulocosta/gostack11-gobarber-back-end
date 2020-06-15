@@ -13,9 +13,50 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "outFiles": [
-        "${workspaceFolder}/**/*.js"
-      ]
-    }
+      "env": {
+        "NODE_OPTIONS": "--inspect"
+      },
+      "port": 9229,
+      "console": "integratedTerminal"
+    },
+    {
+      "type": "node",
+      "request": "attach",
+      "protocol": "inspector",
+      "restart": true,
+      "name": "Debug Tests inspector",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "env": {
+        "NODE_OPTIONS": "--inspect"
+      },
+      "port": 42748,
+      "console": "integratedTerminal"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug Jest Tests",
+      "cwd": "${workspaceFolder}",
+      "args": [
+        "--inspect-brk",
+        "${workspaceRoot}/node_modules/.bin/jest",
+        "--runInBand",
+        "--config",
+        "${workspaceRoot}/jest.config.js"
+      ],
+      "windows": {
+        "args": [
+          "--inspect-brk",
+          "${workspaceRoot}/node_modules/jest/bin/jest.js",
+          "--runInBand"
+          "--config",
+          "${workspaceRoot}/jest.config.js"
+        ],
+      },
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
+    },
   ]
 }
