@@ -1,10 +1,9 @@
 import { classToClass } from 'class-transformer';
 import { inject, injectable } from 'tsyringe';
 
-import ICacheProvider from '@shared/container/providers/CacheProvider/models/ICacheProvider';
-
 import User from '@modules/users/infra/typeorm/entities/User';
 import IUsersRepository from '@modules/users/repositories/IUsersRepository';
+import ICacheProvider from '@shared/container/providers/CacheProvider/models/ICacheProvider';
 
 interface IRequest {
   user_id: string;

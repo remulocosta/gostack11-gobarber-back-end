@@ -21,6 +21,7 @@ class AppointmentsRepository implements IAppointmentsRepository {
         appointment.provider_id === provider_id,
     );
 
+
     return findAppointment;
   }
 

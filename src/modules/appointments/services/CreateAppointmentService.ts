@@ -1,10 +1,9 @@
 import { startOfHour, isBefore, getHours, format } from 'date-fns';
 import { injectable, inject } from 'tsyringe';
 
+import INotificationsRepository from '@modules/notifications/repositories/INotificationsRepository';
 import ICacheProvider from '@shared/container/providers/CacheProvider/models/ICacheProvider';
 import AppError from '@shared/errors/AppError';
-
-import INotificationsRepository from '@modules/notifications/repositories/INotificationsRepository';
 
 import Appointment from '../infra/typeorm/entities/Appointment';
 import IAppointmentRepository from '../repositories/IAppointmentsRepository';
@@ -60,7 +59,7 @@ class CreateAppointmentService {
 
     if (getHours(appointmentDate) < 8 || getHours(appointmentDate) > 17) {
       throw new AppError(
-        'You can only create  appointment between 8am and 5pm',
+        'You can only create appointment between 8am and 5pm',
       );
     }
 

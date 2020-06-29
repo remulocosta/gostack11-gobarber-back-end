@@ -1,5 +1,8 @@
+// import fs from 'fs';
+// import path from 'path';
 import { injectable, inject } from 'tsyringe';
 
+// import uploadConfig from '@config/upload';
 import IStorageProvider from '@shared/container/providers/StorageProvider/models/IStorageProvider';
 import AppError from '@shared/errors/AppError';
 
@@ -12,7 +15,7 @@ interface IRequest {
 }
 
 @injectable()
-class UpdateAvatarService {
+class UpdateUserAvatarService {
   constructor(
     @inject('UsersRepository')
     private usersRepository: IUsersRepository,
@@ -25,10 +28,11 @@ class UpdateAvatarService {
     const user = await this.usersRepository.findById(user_id);
 
     if (!user) {
-      throw new AppError('Only authenticated users can change avatar', 401);
+      throw new AppError('Only authenticated users can change avatar.', 401);
     }
 
     if (user.avatar) {
+      // Deletar avatar anterior
       await this.storageProvider.deleteFile(user.avatar);
     }
 
@@ -42,4 +46,4 @@ class UpdateAvatarService {
   }
 }
 
-export default UpdateAvatarService;
+export default UpdateUserAvatarService;
